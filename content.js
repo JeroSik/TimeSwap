@@ -1,13 +1,13 @@
 /* content.js
 var PTZ = ;//Page Time Zone
 var UTZ = ;//User-defined Time Zone
+#const ZONECODES = [];//hard code these later.
+#var page = ;//this is the current web page url
+#var[] possibleCodes;
 */
-const ZONECODES = [];//hard code these later.
-var page = ;//this is the current web page url
 var str = document.getElementsByTagName('html')[0].outerHTML;
 var index=0;
 var indexSpace=0;
-var[] possibleCodes;
 var arrayIndex=0;
 
 function isLetter(str) {
