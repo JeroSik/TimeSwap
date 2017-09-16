@@ -14,4 +14,8 @@
    "default_icon": "icon.png",
    "popup": "popup.html"
   }
+
+  "permissions": [
+    "geolocation"
+   ]
 }
