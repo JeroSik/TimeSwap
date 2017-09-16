@@ -1,7 +1,21 @@
 {
   "manifest_version": 2,
-  "name": "temp",
-  "version": "0.1"
+
+  "name": "Time Swap",
+  "description": "Changes time on webpages to user time zone.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Time Swap",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    //"scripts": ["background.js"]
+    "page": "background.html"
+  },
+/*
   "content_scripts": [
    {
      "matches": [
@@ -10,12 +24,14 @@
      "js": ["jquery-3.2.1.min.js", "content.js"]    
     }
   ],
-  "browser_action": {
-   "default_icon": "icon.png",
-   "popup": "popup.html"
-  }
-
+*/
   "permissions": [
-    "geolocation"
-   ]
+    "geolocation",
+    "background",
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+
 }
