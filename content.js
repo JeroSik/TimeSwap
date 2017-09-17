@@ -196,23 +196,22 @@ var index=0;
 var indexSpace=0;
 var arrayIndex=0;
 var timeReplaced=0000;
+var temp = "";
 function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
 
 //get possible codes from the html page string
-while((var temp="") != "</html>"){
+while(temp != "</html>"){
   indexSpace = str.indexOf(" ",index);
   temp=str.substr(index,indexSpace);
   if(temp>=3&&temp<=5){
     for(key in timezones){
       if(temp == key){
-        if (index>7) {
-        timeReplaced = str.substr(index-7,index+3);
-        }
+        if (index>7) {timeReplaced = str.substr(index-7,index+3);}
         timeReplaced = timeReplaced.replaceAll("[^\\d.]", "");
         for(var k=4; k<=7;k++){
-          if(index==0||((index-k==" ")&&((index-(k-1)==isLetter(str.charAt(index-(k+1))))&&(index-(k+1)==Number.isInteger(str.charAt(index-(k-1)))))))){
+          if(index==0||((str.charAt(index-k)==" ")&&((str.charAt(index-k-1)==isLetter(str.charAt(index-(k+1))))&&(str.charAt(index-k+1)==Number.isInteger(str.charAt(index-k-1))))))){
             //need to add the timeReplaced var for Noah to use. A full range grab of the possible range might be best.
             if(index==0){break;}
             else{str.replace(str.substr(index,indexSpace),correctTime);}
