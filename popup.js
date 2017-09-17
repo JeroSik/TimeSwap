@@ -1,4 +1,7 @@
 //Find UTC Time Offset
+var sliderBoolean = true;
+var settingsBoolean = true;
+
 var HTMLTime = document.getElementById("offsetOutput");
 var formatTime = null;
 function systemTime() {
@@ -40,10 +43,14 @@ $(document).ready(function(){
     setZone();
   });
   $("#settings").click(function(){
+      settingsBoolean = !settingsBoolean;
       $("#settingsContent").toggle(function (){
           $(this).animate({height: "200px"}, 300);
     }, function () { $(this).animate({height: "75px"}, 300);
 
       });
   });
+  $(".slider").click(function(){
+    sliderBoolean = !sliderBoolean;
   });
+});
