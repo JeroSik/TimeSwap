@@ -34,11 +34,8 @@ function saveChanges(){
     localStorage.mydata = 'n';
   }
 
-  localStorage.mydata2 = document.getElementById("timezone-offset").options[document.getElementById("timezone-offset").selectedIndex].value;
-
   chrome.storage.sync.set({
-    'value': localStorage.mydata,
-    'value2': localStorage.mydata2
+    'value': localStorage.mydata
   }, function(){
 
   })
@@ -60,6 +57,22 @@ function setZone() {
   systemTime();
   HTMLTime.innerHTML = formatTime;
 }
+
+//var checkbox = document.querySelector('input[name=slidingToggle');
+
+//checkbox.addEventListener('change', function(){
+//  if(this.checked == false){
+//    chrome.tabs.executeScript(null, {file: "testExecution.js"});
+//  }
+//});
+
+$('#slidingToggle').click(function(){
+  console.log($('#slidingToggle'));
+  if($('#slidingToggle')[0].checked === false){
+    //chrome.tabs.executeScript(null, {file: "testExecution.js"});
+    changeWebpage();
+  }
+})
 
 var sliderBoolean = false;
 
@@ -95,12 +108,4 @@ $(document).ready(function(){
       $("#settingsContent").toggle(function () { $(this).animate({height: "75px"}, 300);
       });
   });
-  if (localStorage.getItem('mydata2')){//START HERE TO EDIT SETTINGS
-    $('#timezone-offset option[value=localStorage.mydata2]').prop('selected', true);
-  }else{
-    localStorage.mydata2 = document.getElementById("timezone-offset").options[document.getElementById("timezone-offset").selectedIndex].value;
-  }
-  $('#timezone-offset').change(function(){
-    saveChanges();
-  })
 });
