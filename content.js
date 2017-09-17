@@ -196,6 +196,7 @@ var index=0;
 var indexSpace=0;
 var arrayIndex=0;
 var timeReplaced=0000;
+var offset = -400;
 var temp = "";
 function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
@@ -214,7 +215,10 @@ while(temp != "</html>"){
           if(index==0||((str.charAt(index-k)==" ")&&((str.charAt(index-k-1)==isLetter(str.charAt(index-(k+1))))&&(str.charAt(index-k+1)==Number.isInteger(str.charAt(index-k-1))))))){
             //need to add the timeReplaced var for Noah to use. A full range grab of the possible range might be best.
             if(index==0){break;}
-            else{str.replace(str.substr(index,indexSpace),correctTime);}
+              else{
+              correctTime = "<b>"+timeReplaced+offset+"</b>";
+              str.replace(str.substr(index,indexSpace),correctTime);
+              }
           }
         }
       }
