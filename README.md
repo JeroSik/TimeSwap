@@ -1,4 +1,4 @@
-# HelloWorldHack
+# TimeSwap
 Code repository for Hello World Hackathon project: TimeSwap
 
 TimeSwap is a Google Chrome extension that makes remembering time zone differences a thing of the past.
